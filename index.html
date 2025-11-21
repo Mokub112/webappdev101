@@ -1,61 +1,292 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Web App Dev1122</title>
-  <style>
-    body {
-      background-color: #121212;
-      color: #ffffff;
-      font-family: "Segoe UI", sans-serif;
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 20px;
-      line-height: 1.6;
-    }
-    h1, h2, h3 {
-      color: #00bcd4;
-    }
-    strong {
-      color: #ffffff;
-    }
-    hr {
-      border: none;
-      border-top: 1px solid #333;
-      margin: 20px 0;
-    }
-    ul {
-      margin-left: 20px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Panitchapol Suwannala (67024829)</title>
+
+    <style>
+        /* ================================================= */
+        /* 🎨 CSS: Dark Theme & Neon Green Styles */
+        /* ================================================= */
+
+        /* --- 1. ตัวแปรสีและพื้นฐาน --- */
+        :root {
+            --color-dark-bg: #1A1A1A;     /* สีดำเข้ม */
+            --color-text-light: #E0E0E0;  /* สีเทาอ่อนสำหรับข้อความหลัก */
+            --color-neon-green: #A8FF00;  /* สีเขียวนีออน/มะนาว (สีเน้น) */
+            --color-white: #FFFFFF;       /* สีขาวสว่าง */
+            --color-grey-text: #B0B0B0;   /* สีเทาสำหรับข้อความรอง */
+            --color-card-bg: #222222;     /* พื้นหลังของการ์ดผลงาน */
+            --padding-main: 60px 20px;
+        }
+
+        /* Base Styles: ตั้งค่าพื้นฐานสำหรับทั้งหน้า */
+        body {
+            background-color: var(--color-dark-bg);
+            color: var(--color-text-light);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* เพิ่ม Grainy/Noise Texture ให้กับพื้นหลัง (ตามภาพตัวอย่าง) */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* สร้าง noise pattern ด้วย CSS */
+            background: repeating-linear-gradient(
+                45deg,
+                rgba(0, 0, 0, 0.1),
+                rgba(0, 0, 0, 0.1) 1px,
+                transparent 1px,
+                transparent 2px
+            );
+            opacity: 0.05; /* ให้ดูจางๆ คล้ายเม็ดทราย */
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* จัดรูปแบบส่วนหลักของเนื้อหา */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: var(--padding-main);
+        }
+
+        /* จัดรูปแบบเส้นคั่น */
+        hr {
+            border: none;
+            border-top: 1px solid var(--color-card-bg);
+            width: 80%;
+            margin: 40px auto;
+        }
+
+        /* --- 2. ส่วน Hero Section (หน้าปก) --- */
+
+        .hero {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            min-height: 80vh;
+            padding: var(--padding-main);
+        }
+
+        /* เอฟเฟกต์ Neon Glow สำหรับหัวข้อหลัก */
+        .hero h1.neon-text {
+            font-size: 5em;
+            font-weight: 900;
+            margin-bottom: 0;
+            color: var(--color-white);
+            /* เงาสีขาว/นีออนอ่อนๆ (เหมือนไฟนีออนสว่าง) */
+            text-shadow: 
+                0 0 5px rgba(255, 255, 255, 0.8), 
+                0 0 15px rgba(255, 255, 255, 0.5), 
+                0 0 25px rgba(255, 255, 255, 0.3);
+        }
+
+        .hero h2 {
+            font-size: 1.8em;
+            color: var(--color-grey-text);
+            margin: 0.5em 0 0.2em 0;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            color: var(--color-neon-green); /* เน้นชื่อด้วยสีนีออน */
+            text-shadow: 
+                0 0 5px var(--color-neon-green),
+                0 0 10px rgba(168, 255, 0, 0.4);
+        }
+
+        /* --- 3. ส่วนหัวข้อและทักษะ (Headers & Skills) --- */
+
+        h3 {
+            font-size: 2em;
+            color: var(--color-neon-green);
+            border-bottom: 2px solid var(--color-neon-green);
+            display: inline-block;
+            padding-bottom: 5px;
+            margin-bottom: 30px;
+        }
+
+        h4 {
+            color: var(--color-white);
+            margin-top: 20px;
+        }
+
+        /* สไตล์ลิสต์ทักษะ */
+        ul {
+            list-style: none;
+            padding: 0;
+            display: flex; /* จัดเรียงเป็นแถว */
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        ul li {
+            background-color: var(--color-card-bg);
+            border: 1px solid var(--color-neon-green);
+            color: var(--color-neon-green);
+            padding: 8px 15px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(168, 255, 0, 0.5); /* เพิ่มความเรืองแสง */
+            transition: transform 0.3s;
+        }
+
+        ul li:hover {
+            transform: translateY(-3px); /* ลูกเล่นเมื่อนำเมาส์ไปชี้ */
+            background-color: var(--color-neon-green);
+            color: var(--color-dark-bg);
+            box-shadow: 0 0 15px var(--color-neon-green);
+        }
+
+        /* --- 4. ส่วนผลงาน (Projects) --- */
+
+        .project-card {
+            background-color: var(--color-card-bg);
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            border: 1px solid #333;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            box-shadow: 0 4px 20px rgba(168, 255, 0, 0.2); /* เรืองแสงเบาๆ เมื่อ hover */
+        }
+
+        .project-card img {
+            width: 100%;
+            max-width: 400px; /* จำกัดขนาดรูปภาพตัวอย่าง */
+            height: auto;
+            display: block;
+            margin: 15px 0;
+            border: 2px solid var(--color-dark-bg);
+            border-radius: 4px;
+        }
+
+        /* ปุ่ม "ดูผลงาน" */
+        .neon-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: transparent;
+            border: 2px solid var(--color-neon-green);
+            color: var(--color-neon-green);
+            text-decoration: none;
+            border-radius: 5px;
+            text-transform: uppercase;
+            font-weight: bold;
+            /* Neon Shadow Effect */
+            box-shadow: 0 0 8px rgba(168, 255, 0, 0.7);
+            transition: all 0.3s ease;
+        }
+
+        .neon-button:hover {
+            background-color: var(--color-neon-green);
+            color: var(--color-dark-bg);
+            box-shadow: 0 0 15px var(--color-neon-green), 0 0 25px var(--color-neon-green);
+        }
+
+        /* --- 5. ส่วนท้าย (Footer/Contact) --- */
+
+        footer {
+            text-align: center;
+            padding: var(--padding-main);
+            border-top: 1px solid #333;
+            margin-top: 40px;
+        }
+
+        .neon-link {
+            color: var(--color-neon-green);
+            text-decoration: none;
+            text-shadow: 0 0 2px var(--color-neon-green);
+            transition: color 0.3s;
+        }
+
+        .neon-link:hover {
+            color: var(--color-white);
+            text-shadow: 0 0 10px var(--color-neon-green);
+        }
+
+        /* Responsive Design (สำหรับมือถือ) */
+        @media (max-width: 600px) {
+            .hero h1.neon-text {
+                font-size: 3em;
+            }
+            
+            .hero h2, .hero p {
+                font-size: 1em;
+            }
+            
+            .container {
+                padding: 40px 15px;
+            }
+
+            ul {
+                flex-direction: column;
+            }
+        }
+    </style>
 </head>
 <body>
-  <h1>Web App Dev1122</h1>
 
-  <p><strong>Hello World of Web App Dev</strong></p>
-  <hr />
+    <header class="hero">
+        <h1 class="neon-text">Portfolio</h1>
+        <h2>computer science</h2>
+        <p>Panitchapol Suwannala | รหัสนิสิต 67024829</p>
+    </header>
 
-  <h2>Developer:</h2>
-  <p><strong>67024829 Panitchapol Suwannala</strong></p>
-  <hr />
+    <hr>
 
-  <h3>Description:</h3>
-  <p>
-    This is a simple web app that serves as an introduction to web development using 
-    <strong>HTML</strong>, <strong>CSS</strong>, and <strong>JavaScript</strong>. 
-    It's designed to be a basic project for students to showcase their skills in front-end development.
-  </p>
-  <hr />
+    <section id="about" class="container">
+        <h3>✨ เกี่ยวกับฉัน</h3>
+        <p>
+            สวัสดีครับ ผมนายพณิชพล สุวรรณหล้า นักศึกษาสาขา computer science
+            สิ่งที่สนใจและมีความสามารถในการประยุกต์ใช้ Code (HTML, CSS, JavaScript, C#) เพื่อสร้างสรรค์งานออกแบบให้มีชีวิตชีวาและใช้งานได้จริง
+        </p>
+        
+        <h4>🛠️ ทักษะ (Skills)</h4>
+        <ul>
+            <li> Programming languages</li>
+            <li>Web Development (HTML & CSS)</li>
+            <li>Game Development (C#,c++)</li>
+        </ul>
+    </section>
 
-  <h3>Features:</h3>
-  <ul>
-    <li>Basic HTML structure</li>
-    <li>Simple CSS styling</li>
-    <li>Beginner-friendly layout</li>
-  </ul>
+    <hr>
 
-  <hr />
-  <p style="font-size: 14px; color: #888;">© 2025 Panitchapol Suwannala</p>
+    <section id="projects" class="container">
+        <h3>📂 ผลงาน (Projects)</h3>
+        
+        <article class="project-card">
+            <h4>[ชื่อโปรเจกต์ที่ 1] - Web Layout</h4>
+            <img src="project1_thumbnail.jpg" alt="ภาพตัวอย่างโปรเจกต์ 1">
+            <p>
+                ออกแบบและพัฒนาหน้าเว็บไซต์โดยใช้ **HTML และ CSS** เพื่อจัดวาง Layout 
+                ให้เป็นระเบียบและรองรับการแสดงผลบนมือถือ (Responsive Design)
+            </p>
+            <a href="link_to_project1_demo" target="_blank" class="neon-button">ดูผลงาน (Live Demo)</a>
+        </article>
+        </section>
+
+    <hr>
+
+    <footer id="contact" class="container">
+        <h3>✉️ ติดต่อฉัน</h3>
+        <p>คุณสามารถติดต่อผมได้ทาง:</p>
+        <p>Phone: <a class="neon-link">093-303-8535</a></p>
+        <p>Email: <a href="67024829@up.ac.th" class="neon-link">67024829@up.ac.th</a></p>
+    </footer>
+
 </body>
 </html>
