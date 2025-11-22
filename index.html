@@ -6,22 +6,8 @@
     <title>Portfolio - Panitchapol Suwannala (67024829)</title>
 
     <style>
-        /* ================================================= */
-        /* 🎨 CSS: Dark Theme & Neon Green Styles */
-        /* ================================================= */
 
-        /* --- 1. ตัวแปรสีและพื้นฐาน --- */
-        :root {
-            --color-dark-bg: #1A1A1A;     /* สีดำเข้ม */
-            --color-text-light: #E0E0E0;  /* สีเทาอ่อนสำหรับข้อความหลัก */
-            --color-neon-green: #A8FF00;  /* สีเขียวนีออน/มะนาว (สีเน้น) */
-            --color-white: #FFFFFF;       /* สีขาวสว่าง */
-            --color-grey-text: #B0B0B0;   /* สีเทาสำหรับข้อความรอง */
-            --color-card-bg: #222222;     /* พื้นหลังของการ์ดผลงาน */
-            --padding-main: 60px 20px;
-        }
-
-        /* Base Styles: ตั้งค่าพื้นฐานสำหรับทั้งหน้า */
+        /* ตั้งค่าสำหรับทั้งหน้า */
         body {
             background-color: var(--color-dark-bg);
             color: var(--color-text-light);
@@ -32,7 +18,7 @@
             overflow-x: hidden;
         }
 
-        /* เพิ่ม Grainy/Noise Texture ให้กับพื้นหลัง (ตามภาพตัวอย่าง) */
+        /* เพิ่ม Grainy ให้กับพื้นหลัง */
         body::before {
             content: '';
             position: fixed;
@@ -40,7 +26,6 @@
             left: 0;
             width: 100%;
             height: 100%;
-            /* สร้าง noise pattern ด้วย CSS */
             background: repeating-linear-gradient(
                 45deg,
                 rgba(0, 0, 0, 0.1),
@@ -48,7 +33,7 @@
                 transparent 1px,
                 transparent 2px
             );
-            opacity: 0.05; /* ให้ดูจางๆ คล้ายเม็ดทราย */
+            opacity: 0.05;
             pointer-events: none;
             z-index: -1;
         }
@@ -68,7 +53,7 @@
             margin: 40px auto;
         }
 
-        /* --- 2. ส่วน Hero Section (หน้าปก) --- */
+        /* ส่วนหน้าปก */
 
         .hero {
             display: flex;
@@ -80,13 +65,12 @@
             padding: var(--padding-main);
         }
 
-        /* เอฟเฟกต์ Neon Glow สำหรับหัวข้อหลัก */
+        /* เอฟเฟกต์สำหรับหัวข้อหลัก */
         .hero h1.neon-text {
             font-size: 5em;
             font-weight: 900;
             margin-bottom: 0;
             color: var(--color-white);
-            /* เงาสีขาว/นีออนอ่อนๆ (เหมือนไฟนีออนสว่าง) */
             text-shadow: 
                 0 0 5px rgba(255, 255, 255, 0.8), 
                 0 0 15px rgba(255, 255, 255, 0.5), 
@@ -107,8 +91,7 @@
                 0 0 10px rgba(168, 255, 0, 0.4);
         }
 
-        /* --- 3. ส่วนหัวข้อและทักษะ (Headers & Skills) --- */
-
+        /* ส่วนหัวข้อ */
         h3 {
             font-size: 2em;
             color: var(--color-neon-green);
@@ -123,11 +106,11 @@
             margin-top: 20px;
         }
 
-        /* สไตล์ลิสต์ทักษะ */
+        /* สไตล์ลิสต์ทักษะ*/
         ul {
             list-style: none;
             padding: 0;
-            display: flex; /* จัดเรียงเป็นแถว */
+            display: flex;
             flex-wrap: wrap;
             gap: 15px;
         }
@@ -138,18 +121,18 @@
             color: var(--color-neon-green);
             padding: 8px 15px;
             border-radius: 5px;
-            box-shadow: 0 0 5px rgba(168, 255, 0, 0.5); /* เพิ่มความเรืองแสง */
+            box-shadow: 0 0 5px rgba(255, 7, 7, 0.5);
             transition: transform 0.3s;
         }
 
         ul li:hover {
-            transform: translateY(-3px); /* ลูกเล่นเมื่อนำเมาส์ไปชี้ */
+            transform: translateY(-3px);
             background-color: var(--color-neon-green);
             color: var(--color-dark-bg);
             box-shadow: 0 0 15px var(--color-neon-green);
         }
 
-        /* --- 4. ส่วนผลงาน (Projects) --- */
+        /* ส่วนผลงาน */
 
         .project-card {
             background-color: var(--color-card-bg);
@@ -162,12 +145,12 @@
         }
 
         .project-card:hover {
-            box-shadow: 0 4px 20px rgba(168, 255, 0, 0.2); /* เรืองแสงเบาๆ เมื่อ hover */
+            box-shadow: 0 4px 20px rgba(128, 192, 0, 0.2);
         }
 
         .project-card img {
             width: 100%;
-            max-width: 400px; /* จำกัดขนาดรูปภาพตัวอย่าง */
+            max-width: 400px;
             height: auto;
             display: block;
             margin: 15px 0;
@@ -175,7 +158,7 @@
             border-radius: 4px;
         }
 
-        /* ปุ่ม "ดูผลงาน" */
+        /* ปุ่มดูผลงาน */
         .neon-button {
             display: inline-block;
             padding: 10px 20px;
@@ -186,8 +169,7 @@
             border-radius: 5px;
             text-transform: uppercase;
             font-weight: bold;
-            /* Neon Shadow Effect */
-            box-shadow: 0 0 8px rgba(168, 255, 0, 0.7);
+            box-shadow: 0 0 8px rgba(255, 0, 0, 0.7);
             transition: all 0.3s ease;
         }
 
@@ -197,7 +179,7 @@
             box-shadow: 0 0 15px var(--color-neon-green), 0 0 25px var(--color-neon-green);
         }
 
-        /* --- 5. ส่วนท้าย (Footer/Contact) --- */
+        /* ส่วนท้าย */
 
         footer {
             text-align: center;
@@ -218,24 +200,6 @@
             text-shadow: 0 0 10px var(--color-neon-green);
         }
 
-        /* Responsive Design (สำหรับมือถือ) */
-        @media (max-width: 600px) {
-            .hero h1.neon-text {
-                font-size: 3em;
-            }
-            
-            .hero h2, .hero p {
-                font-size: 1em;
-            }
-            
-            .container {
-                padding: 40px 15px;
-            }
-
-            ul {
-                flex-direction: column;
-            }
-        }
     </style>
 </head>
 <body>
@@ -257,7 +221,7 @@
         
         <h4>🛠️ ทักษะ (Skills)</h4>
         <ul>
-            <li> Programming languages</li>
+            <li>Programming languages</li>
             <li>Web Development (HTML & CSS)</li>
             <li>Game Development (C#,c++)</li>
         </ul>
@@ -269,9 +233,9 @@
         <h3>📂 ผลงาน (Projects)</h3>
         
         <article class="project-card">
-            <h4>[ชื่อโปรเจกต์ที่ 1] - Web Layout</h4>
-            <img src="project1_thumbnail.jpg" alt="ภาพตัวอย่างโปรเจกต์ 1">
-            <a href="link_to_project1_demo" target="_blank" class="neon-button">ดูผลงาน (Live Demo)</a>
+            <h4>[ชื่อโปรเจกต์ที่ 1]</h4>
+            <img src="project1.jpg" alt="ภาพตัวอย่างโปรเจกต์ 1">
+            <a href="link_to_project1" target="_blank" class="neon-button">ดูผลงาน</a>
         </article>
         </section>
 
